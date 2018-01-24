@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: k8scertbot
+  labels:
+    k8s-app: k8scertbot
+spec:
+  containers:
+  - name: k8scertbot
+    image: nuimk/k8scertbot
+    ports:
+    - containerPort: 80
+      name: http
+
