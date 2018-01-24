@@ -1,0 +1,24 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: k8scertbot
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: www.example.com
+    http:
+      paths:
+      - path: /.well-known/acme-challenge
+        backend:
+          serviceName: k8scertbot
+          servicePort: http
+  - host: example.com
+    http:
+      paths:
+      - path: /.well-known/acme-challenge
+        backend:
+          serviceName: k8scertbot
+          servicePort: http

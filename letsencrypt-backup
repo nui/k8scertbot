@@ -1,0 +1,3 @@
+#!/bin/sh
+
+tar -cf /letsencrypt.tar -C / /etc/letsencrypt /var/lib/letsencrypt
