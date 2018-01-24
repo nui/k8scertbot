@@ -10,7 +10,8 @@ Easily renew letsencrypt certificate for system running under k8s
   - `kubectl apply -f pod.yaml`
   - `kubectl apply -f service.yaml`
   - `kubectl apply -f ingress.yaml`
-3. Execute into container, `kubectl exec -i -t k8scertbot`
-4. Generate/Renew certificates, `certbot certonly -w . --cert-name <name> -d host_1,host_2,...,host_n`
+3. Execute into container, `kubectl exec -i -t k8scertbot sh`
+4. Generate/Renew certificates, `certbot certonly --webroot -w . --cert-name <name> -d host_1,host_2,...,host_n`
 5. Backup, `letsencrypt-backup`
 6. Copy to local `kubectl cp k8scertbot:/letsencrypt.tar .`
+
